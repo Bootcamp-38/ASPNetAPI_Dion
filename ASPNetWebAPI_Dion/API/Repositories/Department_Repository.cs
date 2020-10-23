@@ -26,7 +26,10 @@ namespace API.Repositories
 
         public int Delete(int id)
         {
-            throw new NotImplementedException();
+            var sp = "SP_Delete_Department";
+            parameters.Add("@Id", id);
+            var delete = connection.Execute(sp, parameters, commandType: CommandType.StoredProcedure);
+            return delete;
         }
 
         public IEnumerable<Department> Get()
@@ -43,7 +46,12 @@ namespace API.Repositories
 
         public int Update(int id, Department department)
         {
-            throw new NotImplementedException();
+            var sp = "SP_Update_Department";
+            parameters.Add("@Id", id);
+            parameters.Add("@Name", department.Name);
+            var update = connection.Execute(sp, parameters, commandType: CommandType.StoredProcedure);
+            //throw new NotImplementedException();
+            return update;
         }
     }
 }

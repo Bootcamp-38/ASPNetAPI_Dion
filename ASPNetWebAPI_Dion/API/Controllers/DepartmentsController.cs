@@ -23,5 +23,15 @@ namespace API.Controllers
             var getData = _repository.Get();
             return Ok(getData);
         }
+        public IHttpActionResult Delete(int id)
+        {
+            _repository.Delete(id);
+            return Ok("Department berhasil dihapus");
+        }
+        public IHttpActionResult Update(int id, Department department)
+        {
+            var data = _repository.Update(id, department);
+            return Ok("Data Department berhasil diupdate" + data);
+        }
     }
 }

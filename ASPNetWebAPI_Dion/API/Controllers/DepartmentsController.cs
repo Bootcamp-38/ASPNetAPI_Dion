@@ -15,7 +15,7 @@ namespace API.Controllers
         public IHttpActionResult Post(Department department)
         {
             _repository.Create(department);
-            return Ok("Data Department Berhasil Dimasukkan");
+            return Ok($"Data {department.Name} Berhasil Dimasukkan ke Database Department");
         }
 
         public IHttpActionResult Get()
@@ -26,7 +26,7 @@ namespace API.Controllers
         public IHttpActionResult Delete(int id)
         {
             _repository.Delete(id);
-            return Ok("Department berhasil dihapus");
+            return Ok($"Data {id} di Database Department berhasil dihapus");
         }
         public IHttpActionResult Update(int id, Department department)
         {

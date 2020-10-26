@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Division.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Department_Repository.cs" />
     <Compile Include="Repositories\Interface\Department_Interface.cs" />

@@ -39,9 +39,12 @@ namespace API.Repositories
             return getData;
         }
 
-        public Task<IEnumerable<Department>> Get(int id)
+        public async Task<IEnumerable<Department>> Get(int id)
         {
-            throw new NotImplementedException();
+            var sp = "SP_GetById_Department";
+            parameters.Add("@Id", id);
+            var getDataById = await connection.QueryAsync<Department>(sp, parameters, commandType: CommandType.StoredProcedure);
+            return getDataById;
         }
 
         public int Update(int id, Department department)

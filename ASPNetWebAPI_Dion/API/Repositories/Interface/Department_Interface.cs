@@ -11,7 +11,6 @@ namespace API.Repositories.Interface
     {
         IEnumerable<Department> Get();
         Task<IEnumerable<Department>> Get(int id);
-
         int Create(Department department);
         int Update(int id, Department department);
         int Delete(int id);

@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace API.Controllers
 {
@@ -14,8 +16,12 @@ namespace API.Controllers
         Department_Repository _repository = new Department_Repository();
         public IHttpActionResult Post(Department department)
         {
-            _repository.Create(department);
-            return Ok($"Data {department.Name} Berhasil Dimasukkan ke Database Department");
+            if((department.Name != null) && (department.Name != ""))
+            {
+                _repository.Create(department);
+                return Ok($"Data {department.Name} Berhasil Dimasukkan ke Database Department");
+            }
+            return BadRequest("Department Name can't be NULL");
         }
 
         public IHttpActionResult Get()
@@ -23,15 +29,32 @@ namespace API.Controllers
             var getData = _repository.Get();
             return Ok(getData);
         }
+
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             _repository.Delete(id);
             return Ok($"Data {id} di Database Department berhasil dihapus");
         }
+
+        [HttpPut]
         public IHttpActionResult Update(int id, Department department)
         {
-            var data = _repository.Update(id, department);
-            return Ok("Data Department berhasil diupdate" + data);
+            if((department.Name != null) && (department.Name != ""))
+            {
+                var data = _repository.Update(id, department);
+                return Ok($"Data {department.Name} berhasil diupdate");
+            }
+            return BadRequest("Department Name can't be NULL");
+        }
+        [ResponseType(typeof(Department))]
+        public Task<IEnumerable<Department>> Get(int? id)
+        {
+
+                int idRequest = Convert.ToInt32(id);
+                //var getDataById = _repository.Get(id);
+                return _repository.Get(idRequest);
+
         }
     }
 }

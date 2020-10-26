@@ -33,8 +33,12 @@ namespace API.Controllers
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
-            _repository.Delete(id);
-            return Ok($"Data {id} di Database Department berhasil dihapus");
+            var delete = _repository.Delete(id);
+            //if(delete != 0)
+            //{
+                return Ok($"Data {id} di Database Department berhasil dihapus {delete}");
+            //}
+            //return BadRequest("Department Name can't be NULL");
         }
 
         [HttpPut]

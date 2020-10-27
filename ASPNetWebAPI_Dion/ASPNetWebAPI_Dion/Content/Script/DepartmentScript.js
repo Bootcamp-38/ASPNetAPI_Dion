@@ -21,8 +21,8 @@ $(document).ready(function () {
             { "data": "Name" },
             {
                 "render": function (data, type, row) {
-                    return '<button class="btn btn-warning" data-placement="left" data-toggle="tooltip" data-animation="false" title="Edit" onclick="return GetById(' + row.Id + ')">Edit</button>' + '&nbsp;' +
-                        '<button class="btn btn-danger" data-placement="right" data-toggle="tooltip" data-animation="false" title="Delete" onclick="return Delete(' + row.Id + ')">Delete</button>'
+                    return '<button class="btn btn-warning" data-placement="left" data-toggle="tooltip" data-animation="false" title="Edit" onclick="return GetById(' + row.Id + ')"><i class="fa fa-edit"></i></button>' + '&nbsp;' +
+                        '<button class="btn btn-danger" data-placement="right" data-toggle="tooltip" data-animation="false" title="Delete" onclick="return Delete(' + row.Id + ')"><i class="fa fa-trash"></i></button>'
                 }
             }]
     });
@@ -72,7 +72,7 @@ function GetById(Id) {
             $('#Name').val(obj.Name);
             $('#myModal').modal('show');
             $('#Update').show();
-            $('#Update').show();
+            $('#Save').hide();
         },
         error: function (errormessage) {
             alert(errormessage.responseText);

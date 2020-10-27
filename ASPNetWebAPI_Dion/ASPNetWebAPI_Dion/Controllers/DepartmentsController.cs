@@ -69,5 +69,20 @@ namespace ASPNetWebAPI_Dion.Controllers
             }
             return Json("internal server error");
         }
+
+        public JsonResult Update(Department department)
+        {
+            var myContent = JsonConvert.SerializeObject(department);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = client.PutAsync("Departments/" + department.Id, byteContent).Result;
+            return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+        public JsonResult Delete(int Id)
+        {
+            var result = client.DeleteAsync("Departments/" + Id).Result;
+            return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
     }
 }

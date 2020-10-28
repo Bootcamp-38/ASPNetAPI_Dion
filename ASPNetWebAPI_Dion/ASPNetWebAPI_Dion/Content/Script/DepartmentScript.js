@@ -1,18 +1,23 @@
 ﻿//import { Swal } from "./sweetalert2@10.";
 //import { result } from "lodash";
 
+//import { Console } from "console";
+//import { date } from "gulp-util";
+
 var table = null;
 
 $(document).ready(function () {
-    debugger;
+    //debugger;
     table = $('#myTable').DataTable({
-        "processing": true,
+        "oLanguage": {
+            "sSearch": "Filter Data"},
+        "iDisplayLength": -1,
+        "sPaginationType": "full_numbers",
         "ajax": {
             url: "/Departments/LoadDepartment",
             type: "GET",
             dataType: "json",
-            dataSrc: "",
-        },
+            dataSrc: ""},
         "columns": [
             {
                 render: function (data, type, row, meta) {
@@ -20,25 +25,67 @@ $(document).ready(function () {
                 }},
             { "data": "Name" },
             {
+                "data": "dateTime",
+                "render": function (data) {
+                    return getDateString(data);
+                }
+            },
+            {
                 "render": function (data, type, row) {
                     return '<button class="btn btn-warning" data-placement="left" data-toggle="tooltip" data-animation="false" title="Edit" onclick="return GetById(' + row.Id + ')"><i class="fa fa-edit"></i></button>' + '&nbsp;' +
                         '<button class="btn btn-danger" data-placement="right" data-toggle="tooltip" data-animation="false" title="Delete" onclick="return Delete(' + row.Id + ')"><i class="fa fa-trash"></i></button>'
                 }
             }]
     });
+
+    $.fn.dataTable.ext.search.push(
+        function (settings, data, dataIndex) {
+            var min = $('#min').datepicker("getDate");
+            var max = $('#max').datepicker("getDate");
+            var startDate = new Date(data[2]);
+            //debugger;
+            if (min == null && max == null) { return true; }
+            if (min == null && startDate <= max) { return true; }
+            if (max == null && startDate >= min) { return true; }
+            if (startDate <= max && startDate >= min) { return true; }
+            return false;
+        }
+    );
+
+    $("#min").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
+    $("#max").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
+
+    $('#min, #max').change(function () {
+        table.draw();
+    });
+
+    //$('#Cari').on('keyup', function () {
+    //    table.search(this.value).draw();
+    //});
 });
 
+
+
+function getDateString(date) {
+    var pattern = /Date\(([^)]+)\)/;
+    var results = pattern.exec(date);
+    var dt = new Date(parseFloat(results[1]));
+    //return dt.getDate() + "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
+    return dt.getFullYear() + "/" + (dt.getMonth() + 1) + "/" + dt.getDate();
+}
+
 function Save() {
-    debugger;
+    //debugger;
     var Department = new Object();
     Department.Name = $('#Name').val();
+    Department.dateTime = $('#Date').val();
     $.ajax({
         type: 'POST',
         url: '/Departments/Insert',
         data: Department
     }).then((result) => {
         if (Department.Name != "") {
-            debugger;
+            //debugger;
             if (result.StatusCode == 200) {
                 Swal.fire({
                     position: 'center',
@@ -59,7 +106,7 @@ function Save() {
 }
 
 function GetById(Id) {
-    debugger;
+    //debugger;
     $.ajax({
         url: "/Departments/GetById/" + Id,
         type: "GET",
@@ -70,6 +117,7 @@ function GetById(Id) {
             const obj = JSON.parse(result);
             $('#Id').val(obj.Id);
             $('#Name').val(obj.Name);
+            $('#Date').val(obj.dateTime);
             $('#myModal').modal('show');
             $('#Update').show();
             $('#Save').hide();
@@ -85,13 +133,14 @@ function Update() {
     var Department = new Object();
     Department.Id = $('#Id').val();
     Department.Name = $('#Name').val();
+    Department.dateTime = $('#Date').val();
     $.ajax({
         type: "POST",
         url: '/Departments/Update/',
         data: Department
     }).then((result) => {
         if (Department.Name != "") {
-            debugger;
+            //debugger;
             if (result.StatusCode == 200) {
                 Swal.fire({
                     position: 'center',
@@ -120,12 +169,12 @@ function Delete(Id) {
         confirmButtonTet: 'Yes, delete it!'
     }).then((result) => {
         if (result.value) {
-            debugger;
+            //debugger;
             $.ajax({
                 url: "/Departments/Delete/",
                 data: { Id: Id }
             }).then((result) => {
-                debugger;
+                //debugger;
                 if (result.StatusCode == 200) {
                     Swal.fire({
                         position: 'center',
@@ -145,6 +194,7 @@ function Delete(Id) {
 function ClearScreen() {
     $('#Id').val('');
     $('#Name').val('');
+    $('#Date').val('');
     $('#Update').hide();
     $('#Save').show();
 }

@@ -177,6 +177,10 @@
     <Compile Include="Migrations\202010270440006_addTable.designer.cs">
       <DependentUpon>202010270440006_addTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010280144462_addDateTime.cs" />
+    <Compile Include="Migrations\202010280144462_addDateTime.designer.cs">
+      <DependentUpon>202010280144462_addDateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Division.cs" />
@@ -273,6 +277,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010270440006_addTable.resx">
       <DependentUpon>202010270440006_addTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010280144462_addDateTime.resx">
+      <DependentUpon>202010280144462_addDateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

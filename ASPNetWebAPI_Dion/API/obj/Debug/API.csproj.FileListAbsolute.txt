@@ -84,10 +84,10 @@ D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\bin\System.Web.WebPages.Deploy
 D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\bin\System.Web.WebPages.Razor.xml
 D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\bin\Antlr3.Runtime.pdb
 D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.Migrations.addTable.resources
+D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.Migrations.addDateTime.resources
+D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.csproj.GenerateResource.cache
 D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.csproj.CoreCompileInputs.cache
 D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.csproj.CopyComplete
 D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.dll
 D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.pdb
-D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.csprojAssemblyReference.cache
-D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.Migrations.addTable.resources
-D:\Github\ASPNetWEBAPI_Dion\ASPNetWebAPI_Dion\API\obj\Debug\API.csproj.GenerateResource.cache

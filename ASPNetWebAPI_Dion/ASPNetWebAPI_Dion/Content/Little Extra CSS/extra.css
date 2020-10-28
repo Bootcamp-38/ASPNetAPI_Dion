@@ -1,0 +1,22 @@
+﻿.container_flex{
+    display: flex;
+}
+
+.flex1{
+    flex:5;
+}
+
+.flex2 {
+    flex:1;
+    align-content: end;
+    align-items: end;
+}
+
+.flex-min-date{
+    align-content: center;
+    margin-right:1.5rem;
+}
+
+.flex-max-date {
+    align-content: center;
+}

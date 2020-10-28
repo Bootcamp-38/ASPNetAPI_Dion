@@ -1,10 +1,4 @@
-﻿//import { Swal } from "./sweetalert2@10.";
-//import { result } from "lodash";
-
-//import { Console } from "console";
-//import { date } from "gulp-util";
-
-var table = null;
+﻿var table = null;
 
 $(document).ready(function () {
     //debugger;
@@ -58,10 +52,6 @@ $(document).ready(function () {
     $('#min, #max').change(function () {
         table.draw();
     });
-
-    //$('#Cari').on('keyup', function () {
-    //    table.search(this.value).draw();
-    //});
 });
 
 
@@ -70,7 +60,6 @@ function getDateString(date) {
     var pattern = /Date\(([^)]+)\)/;
     var results = pattern.exec(date);
     var dt = new Date(parseFloat(results[1]));
-    //return dt.getDate() + "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
     return dt.getFullYear() + "/" + (dt.getMonth() + 1) + "/" + dt.getDate();
 }
 

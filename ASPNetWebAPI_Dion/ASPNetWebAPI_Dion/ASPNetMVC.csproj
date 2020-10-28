@@ -136,7 +136,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\ImageSource\delete.png" />
+    <Content Include="Content\Little Extra CSS\extra.css" />
     <Content Include="Content\Mini AdminPro\assets\images\alert\alert.png" />
     <Content Include="Content\Mini AdminPro\assets\images\alert\alert2.png" />
     <Content Include="Content\Mini AdminPro\assets\images\alert\alert3.png" />

@@ -42,53 +42,54 @@
         <!-- ============================================================== -->
 
 
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Advanced Search</h4>
 
-                        <!-- Search Date -->
+                        <!-- Filter Date -->
+                        <div class="container_flex">
+                            <div class="flex-min-date">
+                                <p>Minimum date: </p>
+                                <input name="min" id="min" type="text">
+                            </div>
+                            <div class="flex-max-date">
+                                <p>Maximum date: </p>
+                                <input name="max" id="max" type="text">
+                            </div>
+                        </div>
 
-                        <table border="0" cellspacing="5" cellpadding="5">
-                            <tbody>
-                                <tr>
-                                    <td>Minimum Date:</td>
-                                    <td><input name="min" id="min" type="text"></td>
-                                </tr>
-                                <tr>
-                                    <td>Maximum Date:</td>
-                                    <td><input name="max" id="max" type="text"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        @*<label>Filter Data<input type="search" class="" placeholder="Search..." aria-controls="myTable"></label>*@
-
+                        <!-- Search Name -->
+                       
                     </div>
                 </div>
 
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Department</h4>
-                        <h6 class="card-subtitle">Department Table</h6>
 
-                        <!-- Add Button -->
-                        <div class="col-md-6 col-4 align-self-center">
-                            <span data-toggle="modal" data-target="#myModal" onclick="ClearScreen();">
-                                <button class="btn pull-left hidden-sm-down btn-success" data-placement="right" data-toggle="tooltip"
-                                        title="Add Department">
-                                    <i class="mdi mdi-plus-circle"></i>
-                                    Insert New Department
-                                </button>
-                            </span>
+                        <div class="container_flex">
+                            <div class="flex1">
+                                <h4 class="card-title">Department</h4>
+                                <h6 class="card-subtitle">Department Table</h6>
+                            </div>
+                            <div class="flex2">
+                                <!-- Add Button -->
+                                <div class="col-md-6 col-4 align-self-center">
+                                    <span data-toggle="modal" data-target="#myModal" onclick="ClearScreen();">
+                                        <button class="btn pull-left hidden-sm-down btn-success" data-placement="right" data-toggle="tooltip"
+                                                title="Add Department">
+                                            <i class="mdi mdi-plus-circle"></i>
+                                            Insert New Department
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
+
+                        
+
+                        
 
                         <div class="modal fade" id="myModal" role="dialog">
                             <div class="modal-dialog">
@@ -314,5 +315,4 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="~/Content/Mini AdminPro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-    @*<script src="~/Content/Mini AdminPro/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css"></script>*@
 }
